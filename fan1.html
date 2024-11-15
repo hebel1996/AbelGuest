@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abel Hotel - Luxury & Relaxation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+    </style>
+    <header>
+        <div class="container navbar">
+            <h1>Abel Hotel </h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="">
+            <div class="hero-image">
+                <div class="imageContainer"><img src="logo.jpeg" alt="Hotel Hero Banner"></div>
+                <div class="hero-text">
+                    <h2>Luxury Redefined</h2>
+                    <p>Experience unparalleled comfort and elegance at Grand Hotel.</p>
+                    <a href="#rooms" class="btn">Explore Our Rooms</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms">
+        <div class="container">
+            <h2>Our Luxurious Accommodations</h2>
+            <div class="room-gallery">
+                <div class="room-card">
+                    <img src="images/room-1.jpg" alt="Deluxe Suite">
+                    <h3>Deluxe Suite</h3>
+                    <p>Spacious suite with breathtaking views...</p>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+                <div class="room-card">
+                    <img src="images/room-2.jpg" alt="Executive Room">
+                    <h3>Executive Room</h3>
+                    <p>Experience comfort and sophistication...</p>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+                </div> 
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Exceptional Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="images/service-1.jpg" alt="Dining">
+                    <h3>Fine Dining</h3>
+                    <p>Enjoy exquisite culinary experiences...</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/service-2.jpg" alt="Spa">
+                    <h3>Spa & Wellness</h3>
+                    <p>Indulge in rejuvenating spa treatments...</p>
+                </div>
+                </div> 
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <img src="images/gallery-1.jpg" alt="Hotel Lobby">
+                <img src="images/gallery-2.jpg" alt="Poolside">
+                <img src="images/gallery-3.jpg" alt="Restaurant">
+                </div> 
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AbelHotel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js">const heroText = document.querySelector('.hero-text');
+        const roomCards = document.querySelectorAll('.room-card');
+        const serviceItems = document.querySelectorAll('.service-item');
+        const galleryImages = document.querySelectorAll('.gallery-container img');
+        
+        // Function to add animation class to elements
+        function addAnimationClass(element, animationClass) {
+          element.classList.add(animationClass);
+        }
+        
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+          const rect = element.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+        }
+        
+        // Function to handle scroll event
+        function handleScroll() {
+          if (isInViewport(heroText)) {
+            addAnimationClass(heroText, 'fadeInUp');
+          }
+          roomCards.forEach((card) => {
+            if (isInViewport(card)) {
+              addAnimationClass(card, 'fadeInUp');
+            }
+          });
+          serviceItems.forEach((item) => {
+            if (isInViewport(item)) {
+              addAnimationClass(item, 'fadeInUp');
+            }
+          });
+          galleryImages.forEach((image) => {
+            if (isInViewport(image)) {
+              addAnimationClass(image, 'fadeInUp');
+            }
+          });
+        }
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+        
+        // Initial check for elements in viewport on page load
+        window.addEventListener('load', handleScroll);
+        </script>
+</body>
+</html>
